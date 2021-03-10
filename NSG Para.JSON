@@ -12,7 +12,7 @@
             "value": [
                 {
                     "properties": {
-                        "NSGName": "NGvignesh02",
+                        "NSGName": "testgithub",
                         "SubnetName": "Subnet1",
                         "securityRules": [
                             {
@@ -34,7 +34,7 @@
                 },
                 {
                     "properties": {
-                        "NSGName": "NSG2_Vignesh",
+                        "NSGName": "testinghub20",
                         "SubnetName": "Subnet2",
                         "securityRules": [
                             {
