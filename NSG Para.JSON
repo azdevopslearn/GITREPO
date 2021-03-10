@@ -1,0 +1,89 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westeurope"
+        },
+        "VNetName": {
+            "value": "super-vnet"
+        },
+        "NSGs": {
+            "value": [
+                {
+                    "properties": {
+                        "NSGName": "NGvignesh02",
+                        "SubnetName": "Subnet1",
+                        "securityRules": [
+                            {
+                                "name": "Inbound_Deny_All",
+                                "properties": {
+                                    "description": "Deny all inbound traffic",
+                                    "protocol": "*",
+                                    "sourcePortRange": "*",
+                                    "sourceAddressPrefix": "*",
+                                    "destinationPortRange": "*",
+                                    "destinationAddressPrefix": "*",
+                                    "access": "Deny",
+                                    "priority": 4096,
+                                    "direction": "Inbound"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "properties": {
+                        "NSGName": "NSG2_Vignesh",
+                        "SubnetName": "Subnet2",
+                        "securityRules": [
+                            {
+                                "name": "Outbound_Deny_All",
+                                "properties": {
+                                    "description": "Deny all inbound traffic",
+                                    "protocol": "*",
+                                    "sourcePortRange": "*",
+                                    "sourceAddressPrefix": "*",
+                                    "destinationPortRange": "*",
+                                    "destinationAddressPrefix": "*",
+                                    "access": "Deny",
+                                    "priority": 4096,
+                                    "direction": "Outbound"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "properties": {
+                        "NSGName": "NSG3",
+                        "SubnetName": "Subnet3",
+                        "securityRules": [
+                            {
+                                "name": "Inbound_Allow_Http",
+                                "properties": {
+                                    "description": "Allow inbound http traffic",
+                                    "protocol": "TCP",
+                                    "sourcePortRange": "*",
+                                    "sourceAddressPrefix": "*",
+                                    "destinationPortRange": "80",
+                                    "destinationAddressPrefix": "*",
+                                    "access": "Allow",
+                                    "priority": 4096,
+                                    "direction": "Inbound"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "properties": {
+                        "NSGName": "NSG4",
+                        "SubnetName": "Subnet4",
+                        "SecurityRules": []
+                    }
+                }
+            ]
+        }
+    }
+}
