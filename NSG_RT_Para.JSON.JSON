@@ -1,0 +1,166 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "East US"
+    },
+    "VNetName": {
+      "value": "VN01"
+    },
+    "SubnetInfo": {
+      "value": [
+        {
+          "properties": {
+            "NSGName": "NSG01",
+            "SubnetName": "sub01",
+            "RouteName": "RT01",
+            "securityRules": [
+              {
+                "name": "Inbound_Deny_All",
+                "properties": {
+                  "description": "Deny all inbound traffic",
+                  "protocol": "*",
+                  "sourcePortRange": "*",
+                  "sourceAddressPrefix": "*",
+                  "destinationPortRange": "*",
+                  "destinationAddressPrefix": "*",
+                  "access": "Deny",
+                  "priority": 4096,
+                  "direction": "Inbound"
+                }
+              }
+            ],
+            "disableBgpRoutePropagation": true,
+            "routes": [
+              {
+                "name": "route1",
+                "properties": {
+                  "addressPrefix": "10.0.0.0/24",
+                  "nextHopType": "VirtualAppliance",
+                  "nextHopIpAddress": "10.0.0.4"
+                }
+              },
+              {
+                "name": "route2",
+                "properties": {
+                  "addressPrefix": "10.15.0.0/24",
+                  "nextHopType": "VirtualAppliance",
+                  "nextHopIpAddress": "10.10.0.68"
+                }
+              },
+              {
+                "name": "route3",
+                "properties": {
+                  "addressPrefix": "10.11.0.0/24",
+                  "nextHopType": "VirtualAppliance",
+                  "nextHopIpAddress": "10.11.0.68"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "NSGName": "NSG02",
+            "SubnetName": "sub02",
+            "RouteName": "RT02",
+            "securityRules": [
+              {
+                "name": "Outbound_Deny_All",
+                "properties": {
+                  "description": "Deny all inbound traffic",
+                  "protocol": "*",
+                  "sourcePortRange": "*",
+                  "sourceAddressPrefix": "*",
+                  "destinationPortRange": "*",
+                  "destinationAddressPrefix": "*",
+                  "access": "Deny",
+                  "priority": 4096,
+                  "direction": "Outbound"
+                }
+              }
+            ],
+            "disableBgpRoutePropagation": true,
+            "routes": [
+              {
+                "name": "route1",
+                "properties": {
+                  "addressPrefix": "10.10.0.0/24",
+                  "nextHopType": "VirtualAppliance",
+                  "nextHopIpAddress": "10.0.0.4"
+                }
+              },
+              {
+                "name": "route2",
+                "properties": {
+                  "addressPrefix": "10.0.0.0/24",
+                  "nextHopType": "VirtualAppliance",
+                  "nextHopIpAddress": "10.10.0.68"
+                }
+              },
+              {
+                "name": "route3",
+                "properties": {
+                  "addressPrefix": "10.12.0.0/24",
+                  "nextHopType": "VirtualAppliance",
+                  "nextHopIpAddress": "10.12.0.68"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "NSGName": "NSG03",
+            "SubnetName": "sub03",
+            "RouteName": "RT03",
+            "securityRules": [
+              {
+                "name": "Inbound_Allow_Http",
+                "properties": {
+                  "description": "Allow inbound http traffic",
+                  "protocol": "TCP",
+                  "sourcePortRange": "*",
+                  "sourceAddressPrefix": "*",
+                  "destinationPortRange": "80",
+                  "destinationAddressPrefix": "*",
+                  "access": "Allow",
+                  "priority": 4096,
+                  "direction": "Inbound"
+                }
+              }
+            ],
+            "disableBgpRoutePropagation": false,
+            "routes": [
+              {
+                "name": "route1",
+                "properties": {
+                  "addressPrefix": "10.0.0.0/24",
+                  "nextHopType": "VirtualAppliance",
+                  "nextHopIpAddress": "10.0.0.4"
+                }
+              },
+              {
+                "name": "route2",
+                "properties": {
+                  "addressPrefix": "10.10.0.0/24",
+                  "nextHopType": "VirtualAppliance",
+                  "nextHopIpAddress": "10.10.0.68"
+                }
+              },
+              {
+                "name": "route3",
+                "properties": {
+                  "addressPrefix": "10.13.0.0/24",
+                  "nextHopType": "VirtualAppliance",
+                  "nextHopIpAddress": "10.13.0.68"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
