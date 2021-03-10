@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "databaseNames": {
+            "value": [
+                "vignbesh",
+                "vicky"
+            ]
+        },
+        "serverNameExternalid": {
+            "value": "/subscriptions/eb7f41f7-91d2-40d0-974d-28e42755c3ae/resourceGroups/Test/providers/Microsoft.Sql/servers/dbprodserver01"
+        },
+        "adminUser": {
+            "value": "loginuser"
+        },
+        "adminPassword": {
+            "value": null
+        }
+    }
+}
