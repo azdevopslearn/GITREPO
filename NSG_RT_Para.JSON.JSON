@@ -12,7 +12,7 @@
       "value": [
         {
           "properties": {
-            "NSGName": "NSG01",
+            "NSGName": "NSG01_hVignes",
             "SubnetName": "sub01",
             "RouteName": "RT01",
             "securityRules": [
@@ -26,7 +26,7 @@
                   "destinationPortRange": "*",
                   "destinationAddressPrefix": "*",
                   "access": "Deny",
-                  "priority": 4096,
+                  "priority": 4400,
                   "direction": "Inbound"
                 }
               }
